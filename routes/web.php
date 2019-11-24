@@ -15,3 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/shows', 'ShowsController@shows');
+
+Route::get('/shows/{id}/events', 'EventsController@events');
+
+Route::get('/events/{id}/places', 'PlacesController@places');
+
+Route::post('/api/place/reserve', 'ApiPlacesController@reserve');

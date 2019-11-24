@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // Lead Book API Provider
+        App\Providers\LeadBookProvider::class,
+
     ],
 
     /*

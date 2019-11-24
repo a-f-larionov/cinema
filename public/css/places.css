@@ -1,0 +1,37 @@
+.disable-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.place {
+    position: absolute;
+    border: 1px dotted grey;
+    font-size: 12px;
+    text-align: center;
+    background: grey;
+
+}
+
+.place-not-available {
+    cursor: not-allowed;
+}
+
+.place-available {
+    cursor: hand;
+    background: lightgreen;
+}
+
+.place-available:hover {
+    background: yellow;
+}
+
+.place-to-reserve {
+    color: white;
+    background: blue;
+}
+
+.place-to-reserve:hover {
+    background: lightblue;
+}
