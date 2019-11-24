@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Interfaces\ShowsRepository;
+use App\Repositories\Interfaces\ShowsRepositoryInterface;
 
 class ShowsController extends Controller
 {
     /**
-     * @param ShowsRepository $eventsRepository
+     * @param ShowsRepositoryInterface $eventsRepository
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function shows(ShowsRepository $eventsRepository)
+    public function shows(ShowsRepositoryInterface $eventsRepository)
     {
         return view('shows-list', [
             'shows' => $eventsRepository->getList()

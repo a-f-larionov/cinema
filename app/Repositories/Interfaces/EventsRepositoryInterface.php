@@ -3,10 +3,10 @@
 namespace App\Repositories\Interfaces;
 
 /**
- * Interface EventsRepository
+ * Interface EventsRepositoryInterface
  * @package App\Repositories\Interfaces
  */
-interface EventsRepository
+interface EventsRepositoryInterface
 {
     /**
      * @param int $showId

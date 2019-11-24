@@ -3,14 +3,14 @@
 namespace App\Managers;
 
 use App\Api\LeadBookApiClient;
-use App\Managers\Interfaces\PlacesManager;
+use App\Managers\Interfaces\PlacesManagerInterface;
 
 /**
  * Менеджер для работы с
  * Class PlacesManager
  * @package App\Managers
  */
-class LeadBookPlacesManager implements PlacesManager
+class LeadBookPlacesManager implements PlacesManagerInterface
 {
 
     /**

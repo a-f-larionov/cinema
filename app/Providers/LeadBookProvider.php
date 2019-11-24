@@ -3,11 +3,11 @@
 namespace App\Providers;
 
 use App\Api\LeadBookApiClient;
-use App\Managers\Interfaces\PlacesManager;
+use App\Managers\Interfaces\PlacesManagerInterface;
 use App\Managers\LeadBookPlacesManager;
-use App\Repositories\Interfaces\EventsRepository;
-use App\Repositories\Interfaces\PlaceRepository;
-use App\Repositories\Interfaces\ShowsRepository;
+use App\Repositories\Interfaces\EventsRepositoryInterface;
+use App\Repositories\Interfaces\PlaceRepositoryInterface;
+use App\Repositories\Interfaces\ShowsRepositoryInterface;
 use App\Repositories\LeadBookEventsRepository;
 use App\Repositories\LeadBookPlaceRepository;
 use App\Repositories\LeadBookShowsRepository;
@@ -31,17 +31,17 @@ class LeadBookProvider extends ServiceProvider
         });
 
         // Регистрация репозиториев
-        $this->app->bind(ShowsRepository::class,
+        $this->app->bind(ShowsRepositoryInterface::class,
             LeadBookShowsRepository::class);
 
-        $this->app->bind(EventsRepository::class,
+        $this->app->bind(EventsRepositoryInterface::class,
             LeadBookEventsRepository::class);
 
-        $this->app->bind(PlaceRepository::class,
+        $this->app->bind(PlaceRepositoryInterface::class,
             LeadBookPlaceRepository::class);
 
         // Регистрация менеджеров
-        $this->app->bind(PlacesManager::class,
+        $this->app->bind(PlacesManagerInterface::class,
             LeadBookPlacesManager::class);
     }
 

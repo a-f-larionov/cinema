@@ -3,10 +3,10 @@
 namespace App\Repositories\Interfaces;
 
 /**
- * Interface ShowsRepository
+ * Interface ShowsRepositoryInterface
  * @package App\Repositories\Interfaces
  */
-interface ShowsRepository
+interface ShowsRepositoryInterface
 {
     /**
      * @return iterable

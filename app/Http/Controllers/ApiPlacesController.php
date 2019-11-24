@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Managers\Interfaces\PlacesManager;
+use App\Managers\Interfaces\PlacesManagerInterface;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -16,10 +16,10 @@ class ApiPlacesController extends ApiController
     /**
      * Выполнить резерв места.
      * @param Request $request
-     * @param PlacesManager $placesManager
+     * @param PlacesManagerInterface $placesManager
      * @return Response
      */
-    public function reserve(Request $request, PlacesManager $placesManager)
+    public function reserve(Request $request, PlacesManagerInterface $placesManager)
     {
         $eventId = (int)$request->post('eventId');
         $placeIds = (array)$request->post('placeIds');

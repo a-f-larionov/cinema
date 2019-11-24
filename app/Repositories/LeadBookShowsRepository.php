@@ -5,12 +5,13 @@ namespace App\Repositories;
 use App\Api\LeadBookApiClient;
 use App\Models\Show;
 use App\Repositories\Interfaces\ShowsRepository;
+use App\Repositories\Interfaces\ShowsRepositoryInterface;
 
 /**
  * Class LeadBookShowsRepository
  * @package App\Repositories
  */
-class LeadBookShowsRepository implements ShowsRepository
+class LeadBookShowsRepository implements ShowsRepositoryInterface
 {
     /**
      * @var LeadBookApiClient

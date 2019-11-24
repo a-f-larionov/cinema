@@ -7,7 +7,7 @@ namespace App\Managers\Interfaces;
  * Interface PlacesManager
  * @package App\Managers\Interfaces
  */
-interface PlacesManager
+interface PlacesManagerInterface
 {
     /**
      * Резервирует место, возвращает id резерва.

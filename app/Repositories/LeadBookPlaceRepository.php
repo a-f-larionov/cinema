@@ -4,10 +4,10 @@ namespace App\Repositories;
 
 use App\Api\LeadBookApiClient;
 use App\Models\Place;
-use App\Repositories\Interfaces\PlaceRepository;
+use App\Repositories\Interfaces\PlaceRepositoryInterface;
 use GuzzleHttp\Exception\GuzzleException;
 
-class LeadBookPlaceRepository implements PlaceRepository
+class LeadBookPlaceRepository implements PlaceRepositoryInterface
 {
     /**
      * @var LeadBookApiClient
@@ -15,7 +15,7 @@ class LeadBookPlaceRepository implements PlaceRepository
     private LeadBookApiClient $api;
 
     /**
-     * LeadBookPlaceRepository constructor.
+     * LeadBookPlaceRepositoryInterface constructor.
      * @param LeadBookApiClient $api
      */
     public function __construct(LeadBookApiClient $api)

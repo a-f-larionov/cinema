@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Interfaces\PlaceRepository;
+use App\Repositories\Interfaces\PlaceRepositoryInterface;
 use Illuminate\View\View;
 
 /**
@@ -13,10 +13,10 @@ class PlacesController extends Controller
 {
     /**
      * @param int $eventId
-     * @param PlaceRepository $placeRepository
+     * @param PlaceRepositoryInterface $placeRepository
      * @return View
      */
-    public function places(int $eventId, PlaceRepository $placeRepository): View
+    public function places(int $eventId, PlaceRepositoryInterface $placeRepository): View
     {
         return view('events-places-list',
             [

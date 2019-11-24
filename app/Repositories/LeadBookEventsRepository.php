@@ -4,10 +4,10 @@ namespace App\Repositories;
 
 use App\Api\LeadBookApiClient;
 use App\Models\Event;
-use App\Repositories\Interfaces\EventsRepository;
+use App\Repositories\Interfaces\EventsRepositoryInterface;
 use GuzzleHttp\Exception\GuzzleException;
 
-class LeadBookEventsRepository implements EventsRepository
+class LeadBookEventsRepository implements EventsRepositoryInterface
 {
     /**
      * @var LeadBookApiClient

@@ -3,10 +3,10 @@
 namespace App\Repositories\Interfaces;
 
 /**
- * Interface PlaceRepository
+ * Interface PlaceRepositoryInterface
  * @package App\Repositories\Interfaces
  */
-interface PlaceRepository
+interface PlaceRepositoryInterface
 {
     /**
      * @param int $eventId
