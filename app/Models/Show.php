@@ -19,6 +19,19 @@ class Show
     private string $name;
 
     /**
+     * Создать из массива с теми же полями.
+     * @param $data
+     * @return Show
+     */
+    public static function createFromArray(array $data): self
+    {
+        $self = new self();
+        $self->setId($data['id']);
+        $self->setName($data['name']);
+        return $self;
+    }
+
+    /**
      * @return int
      */
     public function getId(): int

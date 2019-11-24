@@ -23,7 +23,7 @@ class LeadBookApiClient
     /**
      * @var string
      */
-    private string $host;
+    private string $urlPrefix;
 
     /**
      * Токен авторизации.
@@ -47,6 +47,7 @@ class LeadBookApiClient
      * @param string $method
      * @return mixed
      * @throws GuzzleException
+     * @throws Exception
      */
     private function call(string $url, $data = [], $method = Request::METHOD_GET)
     {

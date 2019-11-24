@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\LeadBook;
 
 use App\Api\LeadBookApiClient;
 use App\Models\Event;
 use App\Repositories\Interfaces\EventsRepositoryInterface;
 use GuzzleHttp\Exception\GuzzleException;
 
-class LeadBookEventsRepository implements EventsRepositoryInterface
+class EventsRepository implements EventsRepositoryInterface
 {
     /**
      * @var LeadBookApiClient
@@ -34,13 +34,9 @@ class LeadBookEventsRepository implements EventsRepositoryInterface
         $response = $this->api->showsEventsById($showId);
 
         $collection = collect($response)
-            ->map(function ($data) {
-                $event = new Event();
-                $event->setId($data->id);
-                $event->setShowId($data->showId);
-                $event->setDate(strtotime($data->date));
-                return $event;
-            });
+            ->map(
+                fn ($data) => Event::createFromArray((array)$data)
+            );
 
         return $collection;
     }

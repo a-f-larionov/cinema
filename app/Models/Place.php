@@ -44,6 +44,24 @@ class Place
     private bool $is_available;
 
     /**
+     * Создать из массива с теми же полями.
+     * @param array $data
+     * @return Place
+     */
+    static public function createFromArray(array $data)
+    {
+        $place = new Place();
+        $place->setId($data['id']);
+        $place->setX($data['x']);
+        $place->setY($data['y']);
+        $place->setWidth($data['width']);
+        $place->setHeight($data['height']);
+        $place->setIsAvailable($data['is_available']);
+
+        return $place;
+    }
+
+    /**
      * @param int $id
      */
     public function setId(int $id): void

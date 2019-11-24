@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Managers;
+namespace App\Managers\LeadBook;
 
 use App\Api\LeadBookApiClient;
 use App\Managers\Interfaces\PlacesManagerInterface;
 
 /**
- * Менеджер для работы с
+ * Менеджер для работы с местами(place)
  * Class PlacesManager
  * @package App\Managers
  */
-class LeadBookPlacesManager implements PlacesManagerInterface
+class PlacesManager implements PlacesManagerInterface
 {
 
     /**

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Interfaces\ShowsRepositoryInterface;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 
 class ShowsController extends Controller
 {
     /**
      * @param ShowsRepositoryInterface $eventsRepository
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function shows(ShowsRepositoryInterface $eventsRepository)
     {

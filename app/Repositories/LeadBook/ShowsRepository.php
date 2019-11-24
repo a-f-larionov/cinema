@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\LeadBook;
 
 use App\Api\LeadBookApiClient;
 use App\Models\Show;
-use App\Repositories\Interfaces\ShowsRepository;
 use App\Repositories\Interfaces\ShowsRepositoryInterface;
+use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * Class LeadBookShowsRepository
  * @package App\Repositories
  */
-class LeadBookShowsRepository implements ShowsRepositoryInterface
+class ShowsRepository implements ShowsRepositoryInterface
 {
     /**
      * @var LeadBookApiClient
@@ -27,17 +27,18 @@ class LeadBookShowsRepository implements ShowsRepositoryInterface
         $this->api = $api;
     }
 
+    /**
+     * @return iterable
+     * @throws GuzzleException
+     */
     public function getList(): iterable
     {
         $response = $this->api->shows();
 
         $collection = collect($response)
-            ->map(function ($data) {
-                $event = new Show();
-                $event->setId($data->id);
-                $event->setName($data->name);
-                return $event;
-            });
+            ->map(
+                fn ($data) => Show::createFromArray((array)$data)
+            );
 
         return $collection;
     }

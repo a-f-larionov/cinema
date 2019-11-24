@@ -24,6 +24,22 @@ class Event
      */
     private int $date;
 
+
+    /**
+     * Создать из массива с теми же полями.
+     * @param array $data
+     * @return Event
+     */
+    static public function createFromArray(array $data)
+    {
+        $event = new Event();
+        $event->setId($data['id']);
+        $event->setShowId($data['showId']);
+        $event->setDate(strtotime($data['date']));
+
+        return $event;
+    }
+
     /**
      * @return int
      */

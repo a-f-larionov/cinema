@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\LeadBook;
 
 use App\Api\LeadBookApiClient;
 use App\Models\Place;
 use App\Repositories\Interfaces\PlaceRepositoryInterface;
 use GuzzleHttp\Exception\GuzzleException;
 
-class LeadBookPlaceRepository implements PlaceRepositoryInterface
+class PlaceRepository implements PlaceRepositoryInterface
 {
     /**
      * @var LeadBookApiClient
@@ -33,18 +33,9 @@ class LeadBookPlaceRepository implements PlaceRepositoryInterface
         $response = $this->api->eventsPlacesByEventId($eventId);
 
         $collection = collect($response)
-            ->map(function ($data) {
-
-                $place = new Place();
-                $place->setId($data->id);
-                $place->setX($data->x);
-                $place->setY($data->y);
-                $place->setWidth($data->width);
-                $place->setHeight($data->height);
-                $place->setIsAvailable($data->is_available);
-
-                return $place;
-            });
+            ->map(
+                fn ($data) => Place::createFromArray((array)$data)
+            );
 
         return $collection;
     }

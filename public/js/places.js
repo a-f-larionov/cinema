@@ -6,6 +6,8 @@ $(document).ready(function () {
     $('.js-place').on('click', function () {
         var isItPlaceToReserve;
 
+        if ($(this).hasClass('place-not-available')) return;
+
         isItPlaceToReserve = $(this).hasClass('js-place-to-reserve');
 
         if (!isItPlaceToReserve) {
