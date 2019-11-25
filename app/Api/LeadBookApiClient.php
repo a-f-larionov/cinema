@@ -33,12 +33,13 @@ class LeadBookApiClient
 
     /**
      * LeadBookApi constructor.
+     * @param Client $client
      */
-    public function __construct()
+    public function __construct(Client $client, string $token, string $urlPrefix)
     {
-        $this->token = config('lead-book.token');
-        $this->client = new  Client();
-        $this->urlPrefix = 'https://leadbook.ru/test-task-api';
+        $this->client = $client;
+        $this->token = $token;
+        $this->urlPrefix = $urlPrefix;
     }
 
     /**

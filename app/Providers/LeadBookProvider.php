@@ -21,14 +21,21 @@ use Illuminate\Support\ServiceProvider;
 class LeadBookProvider extends ServiceProvider
 {
     /**
-     * Регистрация leadbook api.
+     * Регистрация leadBook api.
      */
     public function register()
     {
         // Регистрация API
-        $this->app->singleton(LeadBookApiClient::class, function () {
-            return new LeadBookApiClient();
-        });
+        $this->app->singleton(LeadBookApiClient::class,
+            LeadBookApiClient::class);
+
+        $this->app->when(LeadBookApiClient::class)
+            ->needs('$token')
+            ->give(config('lead-book.token'));
+
+        $this->app->when(LeadBookApiClient::class)
+            ->needs('$urlPrefix')
+            ->give(config('lead-book.urlPrefix'));
 
         // Регистрация репозиториев
         $this->app->bind(ShowsRepositoryInterface::class,
