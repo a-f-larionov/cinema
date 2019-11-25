@@ -17,8 +17,8 @@ Route::get('/', function () {
 
 Route::get('/shows', 'ShowsController@shows');
 
-Route::get('/shows/{id}/events', 'EventsController@events');
+Route::get('/shows/{id}/events', 'EventsController@events')->name('shows-events');
 
-Route::get('/events/{id}/places', 'PlacesController@places');
+Route::get('/events/{id}/places', 'PlacesController@places')->name('events-places');
 
 Route::post('/api/place/reserve', 'ApiPlacesController@reserve');

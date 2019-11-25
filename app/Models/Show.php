@@ -62,12 +62,4 @@ class Show
     {
         $this->name = $name;
     }
-
-    /**
-     * Детальная страница события.
-     */
-    public function getDetailPageUrl(): string
-    {
-        return '/shows/' . $this->getId() . '/events/';
-    }
 }

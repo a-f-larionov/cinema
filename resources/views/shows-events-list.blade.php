@@ -11,7 +11,7 @@
     @foreach($events as $event)
 
         <li>
-            <a href="{{$event->getDetailPageUrl()}}">
+            <a href="{{route('events-places', $event->getId())}}">
 
                 id: {{$event->getId()}}
                 date: {{$event->getHumanDate()}}

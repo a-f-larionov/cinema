@@ -11,9 +11,11 @@ Events List:
 <ul>
     @foreach($shows as $show)
         <li>
-            <a href="{{$show->getDetailPageUrl()}}">
-                {{$show->getId()}}
-                {{$show->getName()}}
+            <a href="{{route('shows-events', $show->getId())}}">
+
+                id: {{$show->getId()}}
+                name: {{$show->getName()}}
+
             </a>
         </li>
     @endforeach

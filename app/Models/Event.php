@@ -96,13 +96,4 @@ class Event
     {
         $this->date = $date;
     }
-
-    /**
-     * Возвращает детальную страницу события(список мест).
-     * @return string
-     */
-    public function getDetailPageUrl(): string
-    {
-        return '/events/' . $this->getId() . '/places';
-    }
 }
